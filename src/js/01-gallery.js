@@ -5,7 +5,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 // Change code below this line
 const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('beforeend', createGallery(galleryItems));
-gallery.addEventListener('click', openOriginalImage);
 
 function createGallery(elements) {
   return elements
@@ -17,15 +16,7 @@ function createGallery(elements) {
     .join('');
 }
 
-function openOriginalImage(evt) {
-  evt.preventDefault();
-  if (evt.target.nodeName !== 'IMG') {
-    return;
-  }
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-}
-
-console.log(galleryItems);
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
